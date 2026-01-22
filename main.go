@@ -5,5 +5,9 @@ func main() {
     // strateErrorHandling()
     // strateStructsAndMethods()
     // strateGoroutines()
-    strateHTTPServer()
+    stratePointers()
+    
+    
+    
+    // strateHTTPServer()
 }
