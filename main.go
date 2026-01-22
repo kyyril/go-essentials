@@ -1,7 +1,7 @@
 package main
 
-
 func main() {
-    strateMultipleReturns()
-    strateErrorHandling()
+    // strateMultipleReturns()
+    // strateErrorHandling()
+    strateStructsAndMethods()
 }
