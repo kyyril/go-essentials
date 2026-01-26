@@ -7,7 +7,8 @@ import (
 func main () {
 	// mapBasic()
 	// mapIterating()
-	mapAreReference()
+	// mapAreReference()
+	mapCounting()
 }
 
 func mapBasic() {
@@ -80,4 +81,22 @@ func mapAreReference () {
 }
 
 
-// counting map
+// counting with map
+func mapCounting() {
+	// Count word occurrences
+	text := []string{
+		"apple", "banana", "apple", "cherry",
+		"banana", "apple", "date", "cherry",
+	}
+
+	wordCount := make(map[string]int)
+
+	for _, word := range text {
+		wordCount[word]++ // zero value (0) + 1 works
+	}
+
+	fmt.Println("Word counts:")
+	for word, count := range wordCount {
+		fmt.Printf("%s : %d\n", word, count)
+	}
+}
