@@ -146,3 +146,7 @@ func mapGrouping (){
 	}
 }
 
+// In DSA, map is used to:
+// count frequency
+// check if something exists
+// remember previous values

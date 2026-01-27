@@ -44,3 +44,9 @@ func stratePointers() {
     *ptr2 = 100
     fmt.Printf("Value from new: %d\n", *ptr2)
 }
+
+// Why Pointer is Important in DSA?
+// Main reason:
+// Linked List
+// Tree
+// modify data without copy
