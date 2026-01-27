@@ -8,7 +8,8 @@ func main () {
 	// mapBasic()
 	// mapIterating()
 	// mapAreReference()
-	mapCounting()
+	// mapCounting()
+	mapGrouping()
 }
 
 func mapBasic() {
@@ -95,8 +96,53 @@ func mapCounting() {
 		wordCount[word]++ // zero value (0) + 1 works
 	}
 
+	fmt.Println(wordCount)
+
 	fmt.Println("Word counts:")
 	for word, count := range wordCount {
 		fmt.Printf("%s : %d\n", word, count)
 	}
 }
+
+
+func mapGrouping (){
+	type Person struct {
+		Name string
+		Age int
+		City string
+	}
+	people := []Person {
+		{Name:"kiki", Age:21, City: "Sibolga"},
+		{Name:"sidiq", Age:21, City: "Sibolga"},
+		{Name:"jamal", Age:22, City: "Medan"},
+		{Name:"wahyu", Age:23, City: "Medan"},
+		{Name:"apalah", Age:23, City: "Medan"},
+	}
+	fmt.Println("origin:",people)
+
+	// group by age
+	byAge:= make(map[int] []Person)
+
+	for _, p := range people {
+		byAge[p.Age] = append(byAge[p.Age], p)
+	}
+	fmt.Println(byAge)
+	// filter
+	for age, group := range byAge {
+		fmt.Println("age:",age)
+		for _, p := range group { 
+		fmt.Println("people:",p)
+		}
+	}
+
+	// group by city
+	byCity := make(map[string] []Person)
+	
+	for _, p := range people {
+		byCity[p.City] = append(byCity[p.City], p)
+	}
+	for city, name := range byCity {
+		fmt.Printf("%s :%v", city, name)
+	}
+}
+
