@@ -4,7 +4,7 @@ func main() {
 	println(fibonacci(4))
 }
 func fibonacci(n int) int {
-	if n < 1 {
+	if n < 2 {
 		return n
 	}
 	a, b := 0, 1

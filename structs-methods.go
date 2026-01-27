@@ -26,7 +26,6 @@ func (p *Person) HaveBirthday() {
 }
 
 // Method for Car
-
 func (c Car) GetInfo() string {
     return fmt.Sprintf("Car: %s %s (%d)", c.brand, c.model, c.year)
 }

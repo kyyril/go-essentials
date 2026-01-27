@@ -2,13 +2,18 @@ package main
 
 import "fmt"
 
+type Personn struct {
+    Name string
+    Age int
+}
+
 // Function strating pointer usage
 func modifyValue(ptr *int) {
     *ptr = 20
 }
 
 // Function strating pointer to struct
-func modifyPerson(p *Person) {
+func modifyPerson(p *Personn) {
     p.Name = "Bob"
     p.Age = 40
 }
@@ -29,7 +34,7 @@ func stratePointers() {
     fmt.Printf("After modifyValue: %d\n", a)
 
     // Example 3: Pointer to struct
-    person := Person{Name: "Khairil", Age: 30}
+    person := Personn{Name: "Khairil", Age: 30}
     fmt.Printf("Before modifyPerson: %s, %d\n", person.Name, person.Age)
     modifyPerson(&person)
     fmt.Printf("After modifyPerson: %s, %d\n", person.Name, person.Age)
