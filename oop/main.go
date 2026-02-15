@@ -83,5 +83,10 @@ processTransaction := func(inst Payment, bil int){
 processTransaction(&budiWallet, 500) //with wallet
 processTransaction(cardWahyu, 2000) //card
 processTransaction(&ucokMember, 1000) //member
-
 }
+
+// Encapsulation: Variabel balance tidak bisa diutak-atik langsung dari luar (misal wallet.balance = 0 itu dilarang jika beda package). Harus lewat fungsi TopUp.
+
+// Inheritance/Composition: PremiumMember otomatis punya nama Pemilik dan bisa Bayar karena kita "menempelkan" Wallet di dalamnya. Tidak perlu menulis ulang kodenya.
+
+// Polymorphism: Fungsi processTransaction tidak peduli kita bayar pakai kartu atau saldo, selama objek tersebut punya fungsi Pay(), program tetap jalan.
