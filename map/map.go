@@ -8,8 +8,8 @@ func main () {
 	// mapBasic()
 	// mapIterating()
 	// mapAreReference()
-	// mapCounting()
-	mapGrouping()
+	mapCounting()
+	// mapGrouping()
 }
 
 func mapBasic() {
