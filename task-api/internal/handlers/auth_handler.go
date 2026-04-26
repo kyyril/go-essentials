@@ -11,6 +11,7 @@ import (
   
 func Register(w http.ResponseWriter, r *http.Request){
 	var user models.User
+	json.NewDecoder(r.Body).Decode(&user)
 	//hash pw sebelum di simpan
 	hashedPassword, _ := auth.HashPassword(user.Password)
 	_, err := database.DB.Exec("INSERT INTO users (username, password, role) VALUES (?,?,?)",
@@ -25,14 +26,23 @@ func Register(w http.ResponseWriter, r *http.Request){
 
 func Login(w http.ResponseWriter, r *http.Request){
 	var input models.User
-	json(NewEncoder(r.body).Decode(input))
+	json.NewDecoder(r.Body).Decode(&input)
 	var dbUser models.User
 
-	err := database.Db.QueryRow("SELECT password, role FROM users WHERE username = ?", input.Username)
-	if err == sql.ErrNoRows || !auth.CheckPassword(input.Password, dbUser.Password){
-		http.Error(w, "invalid username or password", http.statusUnauthorized)
+	row := database.DB.QueryRow("SELECT password, role FROM users WHERE username = ?", input.Username)
+	err := row.Scan(&dbUser.Password, &dbUser.Role)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			http.Error(w, "invalid username or password", http.StatusUnauthorized)
+			return
+		}
+		http.Error(w, "internal server error", http.StatusInternalServerError)
+		return
+	}
+	if !auth.CheckPassword(input.Password, dbUser.Password) {
+		http.Error(w, "invalid username or password", http.StatusUnauthorized)
 		return
 	}
 	token, _ := auth.GenerateJwt(input.Username, dbUser.Role)
-	json.NewEncoder(w).Encode(map[string]string {"token": token})
+	json.NewEncoder(w).Encode(map[string]string{"token": token})
 }
