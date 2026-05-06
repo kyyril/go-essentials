@@ -33,7 +33,7 @@ func NewProjectController(projectService *services.ProjectService) *ProjectContr
 // @Success 201 {object} models.SuccessResponse{data=models.Project}
 // @Failure 400 {object} models.ErrorResponse
 // @Failure 401 {object} models.ErrorResponse
-// @Router /api/v1/projects [post]
+// @Router /projects [post]
 func (ctrl *ProjectController) CreateProject(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 
@@ -75,7 +75,7 @@ func (ctrl *ProjectController) CreateProject(c *gin.Context) {
 // @Param limit query int false "Limit for pagination" default(10)
 // @Success 200 {object} models.SuccessResponse{data=[]models.Project}
 // @Failure 401 {object} models.ErrorResponse
-// @Router /api/v1/projects [get]
+// @Router /projects [get]
 func (ctrl *ProjectController) GetProjects(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 
@@ -127,7 +127,7 @@ func (ctrl *ProjectController) GetProjects(c *gin.Context) {
 // @Failure 401 {object} models.ErrorResponse
 // @Failure 403 {object} models.ErrorResponse
 // @Failure 404 {object} models.ErrorResponse
-// @Router /api/v1/projects/{id} [get]
+// @Router /projects/{id} [get]
 func (ctrl *ProjectController) GetProject(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 	projectID := c.Param("id")
@@ -173,7 +173,7 @@ func (ctrl *ProjectController) GetProject(c *gin.Context) {
 // @Failure 401 {object} models.ErrorResponse
 // @Failure 403 {object} models.ErrorResponse
 // @Failure 404 {object} models.ErrorResponse
-// @Router /api/v1/projects/{id} [put]
+// @Router /projects/{id} [put]
 func (ctrl *ProjectController) UpdateProject(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 	projectID := c.Param("id")
@@ -230,7 +230,7 @@ func (ctrl *ProjectController) UpdateProject(c *gin.Context) {
 // @Failure 401 {object} models.ErrorResponse
 // @Failure 403 {object} models.ErrorResponse
 // @Failure 404 {object} models.ErrorResponse
-// @Router /api/v1/projects/{id} [delete]
+// @Router /projects/{id} [delete]
 func (ctrl *ProjectController) DeleteProject(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 	projectID := c.Param("id")
@@ -274,7 +274,7 @@ func (ctrl *ProjectController) DeleteProject(c *gin.Context) {
 // @Failure 401 {object} models.ErrorResponse
 // @Failure 403 {object} models.ErrorResponse
 // @Failure 404 {object} models.ErrorResponse
-// @Router /api/v1/projects/{id}/members [get]
+// @Router /projects/{id}/members [get]
 func (ctrl *ProjectController) GetMembers(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 	projectID := c.Param("id")
@@ -324,7 +324,7 @@ func (ctrl *ProjectController) GetMembers(c *gin.Context) {
 // @Failure 401 {object} models.ErrorResponse
 // @Failure 403 {object} models.ErrorResponse
 // @Failure 404 {object} models.ErrorResponse
-// @Router /api/v1/projects/{id}/members [post]
+// @Router /projects/{id}/members [post]
 func (ctrl *ProjectController) AddMember(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 	projectID := c.Param("id")
@@ -382,7 +382,7 @@ func (ctrl *ProjectController) AddMember(c *gin.Context) {
 // @Failure 401 {object} models.ErrorResponse
 // @Failure 403 {object} models.ErrorResponse
 // @Failure 404 {object} models.ErrorResponse
-// @Router /api/v1/projects/{id}/members/{userId} [delete]
+// @Router /projects/{id}/members/{userId} [delete]
 func (ctrl *ProjectController) RemoveMember(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 	projectID := c.Param("id")

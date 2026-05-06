@@ -212,7 +212,7 @@ info:
   title: Task Management API
   version: "1.0"
 paths:
-  /api/v1/auth/login:
+  /auth/login:
     post:
       consumes:
       - application/json
@@ -247,7 +247,7 @@ paths:
       summary: Login user
       tags:
       - auth
-  /api/v1/auth/me:
+  /auth/me:
     get:
       consumes:
       - application/json
@@ -309,7 +309,7 @@ paths:
       summary: Update user profile
       tags:
       - auth
-  /api/v1/auth/refresh:
+  /auth/refresh:
     post:
       consumes:
       - application/json
@@ -338,7 +338,7 @@ paths:
       summary: Refresh access token
       tags:
       - auth
-  /api/v1/auth/register:
+  /auth/register:
     post:
       consumes:
       - application/json
@@ -369,7 +369,7 @@ paths:
       summary: Register a new user
       tags:
       - auth
-  /api/v1/projects:
+  /projects:
     get:
       consumes:
       - application/json
@@ -444,7 +444,7 @@ paths:
       summary: Create a new project
       tags:
       - projects
-  /api/v1/projects/{id}:
+  /projects/{id}:
     delete:
       consumes:
       - application/json
@@ -567,7 +567,7 @@ paths:
       summary: Update a project
       tags:
       - projects
-  /api/v1/projects/{id}/members:
+  /projects/{id}/members:
     get:
       consumes:
       - application/json
@@ -653,7 +653,7 @@ paths:
       summary: Add member to project
       tags:
       - projects
-  /api/v1/projects/{id}/members/{userId}:
+  /projects/{id}/members/{userId}:
     delete:
       consumes:
       - application/json
@@ -693,7 +693,7 @@ paths:
       summary: Remove member from project
       tags:
       - projects
-  /api/v1/projects/{id}/tasks:
+  /projects/{id}/tasks:
     get:
       consumes:
       - application/json
@@ -798,7 +798,7 @@ paths:
       summary: Create a new task
       tags:
       - tasks
-  /api/v1/tasks/{taskId}:
+  /tasks/{taskId}:
     delete:
       consumes:
       - application/json
@@ -921,7 +921,7 @@ paths:
       summary: Update a task
       tags:
       - tasks
-  /api/v1/tasks/{taskId}/status:
+  /tasks/{taskId}/status:
     patch:
       consumes:
       - application/json

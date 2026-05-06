@@ -35,7 +35,7 @@ func NewTaskController(taskService *services.TaskService) *TaskController {
 // @Failure 400 {object} models.ErrorResponse
 // @Failure 401 {object} models.ErrorResponse
 // @Failure 403 {object} models.ErrorResponse
-// @Router /api/v1/projects/{id}/tasks [post]
+// @Router /projects/{id}/tasks [post]
 func (ctrl *TaskController) CreateTask(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 	projectID := c.Param("id")
@@ -93,7 +93,7 @@ func (ctrl *TaskController) CreateTask(c *gin.Context) {
 // @Failure 401 {object} models.ErrorResponse
 // @Failure 403 {object} models.ErrorResponse
 // @Failure 404 {object} models.ErrorResponse
-// @Router /api/v1/projects/{id}/tasks [get]
+// @Router /projects/{id}/tasks [get]
 func (ctrl *TaskController) GetProjectTasks(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 	projectID := c.Param("id")
@@ -166,7 +166,7 @@ func (ctrl *TaskController) GetProjectTasks(c *gin.Context) {
 // @Failure 401 {object} models.ErrorResponse
 // @Failure 403 {object} models.ErrorResponse
 // @Failure 404 {object} models.ErrorResponse
-// @Router /api/v1/tasks/{taskId} [get]
+// @Router /tasks/{taskId} [get]
 func (ctrl *TaskController) GetTask(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 	taskID := c.Param("taskId")
@@ -212,7 +212,7 @@ func (ctrl *TaskController) GetTask(c *gin.Context) {
 // @Failure 401 {object} models.ErrorResponse
 // @Failure 403 {object} models.ErrorResponse
 // @Failure 404 {object} models.ErrorResponse
-// @Router /api/v1/tasks/{taskId} [put]
+// @Router /tasks/{taskId} [put]
 func (ctrl *TaskController) UpdateTask(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 	taskID := c.Param("taskId")
@@ -271,7 +271,7 @@ func (ctrl *TaskController) UpdateTask(c *gin.Context) {
 // @Failure 401 {object} models.ErrorResponse
 // @Failure 403 {object} models.ErrorResponse
 // @Failure 404 {object} models.ErrorResponse
-// @Router /api/v1/tasks/{taskId}/status [patch]
+// @Router /tasks/{taskId}/status [patch]
 func (ctrl *TaskController) UpdateTaskStatus(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 	taskID := c.Param("taskId")
@@ -328,7 +328,7 @@ func (ctrl *TaskController) UpdateTaskStatus(c *gin.Context) {
 // @Failure 401 {object} models.ErrorResponse
 // @Failure 403 {object} models.ErrorResponse
 // @Failure 404 {object} models.ErrorResponse
-// @Router /api/v1/tasks/{taskId} [delete]
+// @Router /tasks/{taskId} [delete]
 func (ctrl *TaskController) DeleteTask(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 	taskID := c.Param("taskId")

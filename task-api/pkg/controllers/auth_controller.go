@@ -31,7 +31,7 @@ func NewAuthController(authService *services.AuthService) *AuthController {
 // @Param request body models.RegisterRequest true "Registration request"
 // @Success 201 {object} models.SuccessResponse{data=models.User}
 // @Failure 400 {object} models.ErrorResponse
-// @Router /api/v1/auth/register [post]
+// @Router /auth/register [post]
 func (ctrl *AuthController) Register(c *gin.Context) {
 	var req models.RegisterRequest
 
@@ -71,7 +71,7 @@ func (ctrl *AuthController) Register(c *gin.Context) {
 // @Success 200 {object} models.SuccessResponse{data=models.LoginResponse}
 // @Failure 400 {object} models.ErrorResponse
 // @Failure 401 {object} models.ErrorResponse
-// @Router /api/v1/auth/login [post]
+// @Router /auth/login [post]
 func (ctrl *AuthController) Login(c *gin.Context) {
 	var req models.LoginRequest
 
@@ -111,7 +111,7 @@ func (ctrl *AuthController) Login(c *gin.Context) {
 // @Success 200 {object} models.SuccessResponse
 // @Failure 400 {object} models.ErrorResponse
 // @Failure 401 {object} models.ErrorResponse
-// @Router /api/v1/auth/refresh [post]
+// @Router /auth/refresh [post]
 func (ctrl *AuthController) Refresh(c *gin.Context) {
 	authHeader := c.GetHeader("Authorization")
 	if authHeader == "" {
@@ -163,7 +163,7 @@ func (ctrl *AuthController) Refresh(c *gin.Context) {
 // @Security Bearer
 // @Success 200 {object} models.SuccessResponse{data=models.User}
 // @Failure 401 {object} models.ErrorResponse
-// @Router /api/v1/auth/me [get]
+// @Router /auth/me [get]
 func (ctrl *AuthController) GetProfile(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 
@@ -195,7 +195,7 @@ func (ctrl *AuthController) GetProfile(c *gin.Context) {
 // @Success 200 {object} models.SuccessResponse{data=models.User}
 // @Failure 400 {object} models.ErrorResponse
 // @Failure 401 {object} models.ErrorResponse
-// @Router /api/v1/auth/me [put]
+// @Router /auth/me [put]
 func (ctrl *AuthController) UpdateProfile(c *gin.Context) {
 	userID := middleware.GetUserID(c)
 

@@ -23,7 +23,7 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/api/v1/auth/login": {
+        "/auth/login": {
             "post": {
                 "description": "Authenticate user and return JWT tokens",
                 "consumes": [
@@ -81,7 +81,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/v1/auth/me": {
+        "/auth/me": {
             "get": {
                 "security": [
                     {
@@ -188,7 +188,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/v1/auth/refresh": {
+        "/auth/refresh": {
             "post": {
                 "description": "Get a new access token using refresh token",
                 "consumes": [
@@ -232,7 +232,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/v1/auth/register": {
+        "/auth/register": {
             "post": {
                 "description": "Create a new user account",
                 "consumes": [
@@ -284,7 +284,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/v1/projects": {
+        "/projects": {
             "get": {
                 "security": [
                     {
@@ -410,7 +410,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/v1/projects/{id}": {
+        "/projects/{id}": {
             "get": {
                 "security": [
                     {
@@ -610,7 +610,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/v1/projects/{id}/members": {
+        "/projects/{id}/members": {
             "get": {
                 "security": [
                     {
@@ -748,7 +748,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/v1/projects/{id}/members/{userId}": {
+        "/projects/{id}/members/{userId}": {
             "delete": {
                 "security": [
                     {
@@ -810,7 +810,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/v1/projects/{id}/tasks": {
+        "/projects/{id}/tasks": {
             "get": {
                 "security": [
                     {
@@ -980,7 +980,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/v1/tasks/{taskId}": {
+        "/tasks/{taskId}": {
             "get": {
                 "security": [
                     {
@@ -1180,7 +1180,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/api/v1/tasks/{taskId}/status": {
+        "/tasks/{taskId}/status": {
             "patch": {
                 "security": [
                     {
