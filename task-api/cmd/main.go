@@ -4,6 +4,9 @@ import (
 	"log"
 
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
+	_ "task-management-api/docs"
 	"task-management-api/pkg/config"
 	"task-management-api/pkg/controllers"
 	"task-management-api/pkg/database"
@@ -89,6 +92,9 @@ func setupRouter(cfg *config.Config, authCtrl *controllers.AuthController, proje
 	router.GET("/health", func(c *gin.Context) {
 		c.JSON(200, gin.H{"status": "healthy"})
 	})
+
+	// Swagger documentation
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	// API v1 routes
 	v1 := router.Group("/api/v1")
