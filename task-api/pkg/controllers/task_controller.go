@@ -29,16 +29,16 @@ func NewTaskController(taskService *services.TaskService) *TaskController {
 // @Accept json
 // @Produce json
 // @Security Bearer
-// @Param projectId path string true "Project ID"
+// @Param id path string true "Project ID"
 // @Param request body models.CreateTaskRequest true "Create task request"
 // @Success 201 {object} models.SuccessResponse{data=models.Task}
 // @Failure 400 {object} models.ErrorResponse
 // @Failure 401 {object} models.ErrorResponse
 // @Failure 403 {object} models.ErrorResponse
-// @Router /api/v1/projects/{projectId}/tasks [post]
+// @Router /api/v1/projects/{id}/tasks [post]
 func (ctrl *TaskController) CreateTask(c *gin.Context) {
 	userID := middleware.GetUserID(c)
-	projectID := c.Param("projectId")
+	projectID := c.Param("id")
 
 	var req models.CreateTaskRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
@@ -84,7 +84,7 @@ func (ctrl *TaskController) CreateTask(c *gin.Context) {
 // @Accept json
 // @Produce json
 // @Security Bearer
-// @Param projectId path string true "Project ID"
+// @Param id path string true "Project ID"
 // @Param offset query int false "Offset for pagination" default(0)
 // @Param limit query int false "Limit for pagination" default(10)
 // @Param status query string false "Filter by status (todo, in_progress, done)"
@@ -93,10 +93,10 @@ func (ctrl *TaskController) CreateTask(c *gin.Context) {
 // @Failure 401 {object} models.ErrorResponse
 // @Failure 403 {object} models.ErrorResponse
 // @Failure 404 {object} models.ErrorResponse
-// @Router /api/v1/projects/{projectId}/tasks [get]
+// @Router /api/v1/projects/{id}/tasks [get]
 func (ctrl *TaskController) GetProjectTasks(c *gin.Context) {
 	userID := middleware.GetUserID(c)
-	projectID := c.Param("projectId")
+	projectID := c.Param("id")
 
 	offset := 0
 	limit := 10

@@ -125,7 +125,7 @@ func setupRouter(cfg *config.Config, authCtrl *controllers.AuthController, proje
 				projects.DELETE("/:id/members/:userId", projectCtrl.RemoveMember)
 
 				// Task routes nested under projects
-				tasks := projects.Group("/:projectId/tasks")
+				tasks := projects.Group("/:id/tasks")
 				{
 					tasks.POST("", taskCtrl.CreateTask)
 					tasks.GET("", taskCtrl.GetProjectTasks)

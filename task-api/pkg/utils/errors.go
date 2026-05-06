@@ -17,8 +17,8 @@ var (
 
 // ErrorWithCode wraps an error with HTTP status code
 type ErrorWithCode struct {
-	Error  error
-	Code   int
+	Err     error
+	Code    int
 	Message string
 }
 
@@ -83,7 +83,7 @@ func GetErrorMessage(err error) string {
 // NewErrorWithCode creates a new error with custom code and message
 func NewErrorWithCode(err error, code int, message string) *ErrorWithCode {
 	return &ErrorWithCode{
-		Error:   err,
+		Err:     err,
 		Code:    code,
 		Message: message,
 	}
@@ -96,5 +96,5 @@ func (e *ErrorWithCode) Error() string {
 
 // Unwrap implements the Unwrap interface for errors.Is and errors.As
 func (e *ErrorWithCode) Unwrap() error {
-	return e.Error
+	return e.Err
 }
