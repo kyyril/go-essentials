@@ -1,5 +1,8 @@
 package main
 
-func Greet(name string) string {
+func Hello(name string) string {
+	if name == "" {
+		name = "World"
+	}
 	return "Hello, " + name
 }
